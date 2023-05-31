@@ -1,9 +1,19 @@
+using _10_Introducao_a_APIs_com_Csharp.Context;
+using _10_Introducao_a_APIs_com_Csharp.Entities;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adicionando services
+
+// Pega a string da conexao padrao no appsetings.json
+var ConexaoPadrao = builder.Configuration.GetConnectionString("ConexaoPadrao");
+
+// Adicionando o servico
+builder.Services.AddDbContext<AgendaContext>(options =>
+    options.UseSqlServer(ConexaoPadrao));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -23,3 +33,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
