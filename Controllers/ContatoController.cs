@@ -79,8 +79,8 @@ namespace _10_Introducao_a_APIs_com_Csharp.Controllers
             {
                 _context.Contatos.Remove(contatoBanco);
                 _context.SaveChanges();
-                
-                return Ok();
+
+                return NoContent();
             }
         }
     }
