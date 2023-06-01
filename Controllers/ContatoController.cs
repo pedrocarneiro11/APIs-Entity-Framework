@@ -65,5 +65,23 @@ namespace _10_Introducao_a_APIs_com_Csharp.Controllers
                 return Ok(contatoBanco);
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var contatoBanco = _context.Contatos.Find(id);
+
+            if (contatoBanco == null)
+            {
+                return NotFound();
+            }
+            else 
+            {
+                _context.Contatos.Remove(contatoBanco);
+                _context.SaveChanges();
+                
+                return Ok();
+            }
+        }
     }
 }
