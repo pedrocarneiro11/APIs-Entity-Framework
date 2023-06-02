@@ -43,6 +43,21 @@ namespace _10_Introducao_a_APIs_com_Csharp.Controllers
                 return NotFound();
             }            
         }
+        
+        [HttpGet("ObterPorNome")]
+        public IActionResult Get(string Nome)
+        {
+            var contatos = _context.Contatos.Where(x => x.Nome.Contains(Nome));
+
+            if(contatos != null)
+            {
+                return Ok(contatos);
+            } 
+            else
+            {
+                return NotFound();
+            }            
+        }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Contato contato)
