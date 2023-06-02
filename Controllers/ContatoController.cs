@@ -26,16 +26,18 @@ namespace _10_Introducao_a_APIs_com_Csharp.Controllers
         {
             _context.Add(contato);
             _context.SaveChanges();
-            return Ok(contato);
+            return CreatedAtAction(nameof(GetByID), new { id = contato.Id }, contato);
         }
         
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetByID(int id)
         {
             var contato = _context.Contatos.Find(id);
 
             if(contato != null)
             {
+                int Id = id;
+                string nome = contato.Nome;
                 return Ok(contato);
             } 
             else
@@ -51,6 +53,7 @@ namespace _10_Introducao_a_APIs_com_Csharp.Controllers
 
             if(contatos != null)
             {
+                string nome = Nome;
                 return Ok(contatos);
             } 
             else
