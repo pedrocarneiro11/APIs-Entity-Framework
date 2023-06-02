@@ -24,7 +24,7 @@
 #### :point_right: Método GET, para exibir informações climáticas
 
 ## A API também está documentada com o Swagger, caso queira ver a documentação da API, clone o repositorio na sua maquina local:
-### :point_right: Abra o terminal na pasta do repositório clonado
-### :point_right: Digite no terminal o seguinte comando: "dotnet watch run" (sem as aspas)
+#### :point_right: Abra o terminal na pasta do repositório clonado
+#### :point_right: Digite no terminal o seguinte comando: "dotnet watch run" (sem as aspas)
 
-### :point_right: Será aberto no seu navegador a documentação da API no Swagger
+#### :point_right: Será aberto no seu navegador a documentação da API no Swagger
